@@ -19,8 +19,8 @@ resource "helm_release" "argocd" {
   ] : []
 }
 
-resource "kubernetes_manifest" "tls-certificate" {
-  count = var.generate-tls-certificate == true ? 1 : 0
+resource "kubernetes_manifest" "tls-certificate-cluster-issuer" {
+  count = var.generate-tls-certificate-cluster-issuer == true ? 1 : 0
 
   manifest = {
     "apiVersion" = "cert-manager.io/v1"
@@ -39,6 +39,24 @@ resource "kubernetes_manifest" "tls-certificate" {
         "name" = var.selfsigned-cluster-issuer
       }
       "secretName" = "${var.helm-chart-name}-tls"
+    }
+  }
+}
+
+resource "kubernetes_manifest" "tls-certificate-files" {
+  count = var.generate-tls-certificate-cluster-issuer == true ? 1 : 0
+
+  manifest = {
+    "apiVersion" = "v1"
+    "kind"       = "Secret"
+    "metadata" = {
+      "name"      = "${var.helm-chart-name}-tls"
+      "namespace" = var.tls-certificate-namespace
+    }
+    "type" = "kubernetes.io/tls"
+    "data" = {
+      "tls.crt" = var.tls-crt
+      "tls.key" = var.tls-key
     }
   }
 }
@@ -102,8 +120,6 @@ locals {
 }
 
 resource "null_resource" "patch_gateway" {
-  depends_on = [kubernetes_manifest.tls-certificate]
-
   provisioner "local-exec" {
     command = local.patch_command
   }

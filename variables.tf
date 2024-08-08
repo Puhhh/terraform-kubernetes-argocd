@@ -58,8 +58,8 @@ variable "argocd-replicas-count" {
   default     = 1
 }
 
-variable "generate-tls-certificate" {
-  description = "Generate TLS Certificate"
+variable "generate-tls-certificate-cluster-issuer" {
+  description = "Generate TLS Certificate (Use Cluster Issuer)"
   type        = bool
   default     = false
 }
@@ -74,6 +74,24 @@ variable "selfsigned-cluster-issuer" {
   description = "Selfsigned Cluster Issuer"
   type        = string
   default     = "selfsigned-cluster-issuer"
+}
+
+variable "generate-tls-certificate-cluster-issuer" {
+  description = "Generate TLS Certificate (Use Files)"
+  type        = bool
+  default     = false
+}
+
+variable "tls-crt" {
+  description = "Crt Base64 Encoded"
+  type        = string
+  default     = ""
+}
+
+variable "tls-key" {
+  description = "Key Base64 Encoded"
+  type        = string
+  default     = ""
 }
 
 variable "istio-ingress-gateway-namespace" {
