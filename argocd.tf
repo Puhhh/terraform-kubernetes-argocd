@@ -44,7 +44,7 @@ resource "kubernetes_manifest" "tls-certificate-cluster-issuer" {
 }
 
 resource "kubernetes_manifest" "tls-certificate-files" {
-  count = var.generate-tls-certificate-cluster-issuer == true ? 1 : 0
+  count = var.generate-tls-certificate-files == true ? 1 : 0
 
   manifest = {
     "apiVersion" = "v1"

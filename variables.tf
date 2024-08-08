@@ -76,7 +76,7 @@ variable "selfsigned-cluster-issuer" {
   default     = "selfsigned-cluster-issuer"
 }
 
-variable "generate-tls-certificate-cluster-issuer" {
+variable "generate-tls-certificate-files" {
   description = "Generate TLS Certificate (Use Files)"
   type        = bool
   default     = false
