@@ -43,7 +43,7 @@ variable "helm-custom-values" {
 variable "helm-custom-values-path" {
   description = "Helm Custom Values Path"
   type        = string
-  default     = null
+  default     = "values.yaml"
 }
 
 variable "argocd-host" {

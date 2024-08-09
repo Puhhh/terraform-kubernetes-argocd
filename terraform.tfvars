@@ -1,3 +1,2 @@
-helm-custom-values      = true
-helm-custom-values-path = "values.yaml"
-argocd-host             = "argocd.kubernetes.local"
+helm-custom-values = true
+argocd-host        = "argocd.kubernetes.local"
