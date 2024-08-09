@@ -43,7 +43,7 @@ variable "helm-custom-values" {
 variable "helm-custom-values-path" {
   description = "Helm Custom Values Path"
   type        = string
-  default     = ""
+  default     = null
 }
 
 variable "argocd-host" {
@@ -56,58 +56,4 @@ variable "argocd-replicas-count" {
   description = "ArgoCD Replicas Count"
   type        = number
   default     = 1
-}
-
-variable "generate-tls-certificate-cluster-issuer" {
-  description = "Generate TLS Certificate (Use Cluster Issuer)"
-  type        = bool
-  default     = false
-}
-
-variable "tls-certificate-namespace" {
-  description = "TLS Certificate Namespace"
-  type        = string
-  default     = "istio-ingress"
-}
-
-variable "selfsigned-cluster-issuer" {
-  description = "Selfsigned Cluster Issuer"
-  type        = string
-  default     = "selfsigned-cluster-issuer"
-}
-
-variable "generate-tls-certificate-files" {
-  description = "Generate TLS Certificate (Use Files)"
-  type        = bool
-  default     = false
-}
-
-variable "tls-crt" {
-  description = "Crt Base64 Encoded"
-  type        = string
-  default     = ""
-}
-
-variable "tls-key" {
-  description = "Key Base64 Encoded"
-  type        = string
-  default     = ""
-}
-
-variable "istio-ingress-gateway-namespace" {
-  description = "Istio Ingress Gateway namespace"
-  type        = string
-  default     = "istio-ingress"
-}
-
-variable "istio-ingress-gateway-name" {
-  description = "Istio Ingress Gateway Name"
-  type        = string
-  default     = "gateway"
-}
-
-variable "argocd-server-svc" {
-  description = "Argocd Server Service Name"
-  type        = string
-  default     = "argocd-server"
 }

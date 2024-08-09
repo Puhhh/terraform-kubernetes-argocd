@@ -1,6 +1,7 @@
 # How to use
 
 * Change S3 values 
+* Change network.tf variables
 
 ```bash
 terraform init
