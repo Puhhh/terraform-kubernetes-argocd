@@ -62,6 +62,32 @@ repoServer:
       cpu: 10m
       memory: 64Mi
 
+  initContainers:
+    - name: init
+      image: grafana/alpine:3.15.4
+      command: ["/bin/sh", "-c"]
+      args: ["update-ca-certificates && cp -r /etc/ssl/certs/* /artifact/"]
+      volumeMounts:
+        - name: certs
+          mountPath: /usr/local/share/ca-certificates/${configmap-name}.crt
+          subPath: ${configmap-name}.pem
+          readOnly: false
+        - name: temp
+          mountPath: /artifact
+          readOnly: false
+
+  volumeMounts:
+    - name: temp
+      mountPath: /etc/ssl/certs
+      readOnly: false
+
+  volumes:
+    - name: certs
+      configMap:
+        name: ${configmap-name}
+    - name: temp
+      emptyDir: {}
+
 notifications:
   podLabels:
     app: notifications
@@ -109,8 +135,8 @@ server:
       args: ["update-ca-certificates && cp -r /etc/ssl/certs/* /artifact/"]
       volumeMounts:
         - name: certs
-          mountPath: /usr/local/share/ca-certificates/selfsigned-ca-bundle.crt
-          subPath: selfsigned-ca-bundle.pem
+          mountPath: /usr/local/share/ca-certificates/${configmap-name}.crt
+          subPath: ${configmap-name}.pem
           readOnly: false
         - name: temp
           mountPath: /artifact
@@ -124,6 +150,6 @@ server:
   volumes:
     - name: certs
       configMap:
-        name: selfsigned-ca-bundle
+        name: ${configmap-name}
     - name: temp
       emptyDir: {}
