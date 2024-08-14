@@ -4,7 +4,7 @@ module "istio-network" {
   tls-name                        = helm_release.argocd.name
   server-url                      = var.argocd-host
   tls-certificate-cluster-issuer  = true
-  selfsigned-cluster-issuer       = "selfsigned-cluster-issuer"
+  selfsigned-cluster-issuer       = "ca-issuer"
   istio-ingress-gateway-namespace = "istio-ingress"
   istio-ingress-gateway-name      = "gateway"
   server-svc-name                 = "argocd-server"
