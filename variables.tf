@@ -43,13 +43,17 @@ variable "helm-custom-values" {
 variable "helm-custom-values-path" {
   description = "Helm Custom Values Path"
   type        = string
-  default     = "values.yaml"
+  default     = ""
+
+  validation {
+    condition     = !(var.helm-custom-values && var.helm-custom-values-path == "")
+    error_message = "helm-custom-values-path must not be null when helm-custom-values is true."
+  }
 }
 
 variable "argocd-host" {
   description = "ArgoCD Server URL"
   type        = string
-  default     = "argocd.example.com"
 }
 
 variable "argocd-replicas-count" {

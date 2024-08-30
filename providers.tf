@@ -1,4 +1,6 @@
 terraform {
+  required_version = ">= 0.13"
+
   required_providers {
 
     kubernetes = {
@@ -8,12 +10,6 @@ terraform {
     helm = {
       source = "hashicorp/helm"
     }
-  }
-
-  backend "s3" {
-    bucket = "terraform-kubernetes-puhhh-s3"
-    key    = "test/argocd/terraform.tfstate"
-    region = "eu-north-1"
   }
 }
 

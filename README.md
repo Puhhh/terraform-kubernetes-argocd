@@ -1,20 +1,20 @@
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.14.1 |
-| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.31.0 |
+| <a name="provider_helm"></a> [helm](#provider\_helm) | 2.15.0 |
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.32.0 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_istio-network"></a> [istio-network](#module\_istio-network) | github.com/Puhhh/terraform-istio-network | n/a |
+No modules.
 
 ## Resources
 
@@ -27,7 +27,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_argocd-host"></a> [argocd-host](#input\_argocd-host) | ArgoCD Server URL | `string` | `"argocd.example.com"` | no |
+| <a name="input_argocd-host"></a> [argocd-host](#input\_argocd-host) | ArgoCD Server URL | `string` | n/a | yes |
 | <a name="input_argocd-namespace"></a> [argocd-namespace](#input\_argocd-namespace) | ArgoCD Namespace | `string` | `"argocd"` | no |
 | <a name="input_argocd-replicas-count"></a> [argocd-replicas-count](#input\_argocd-replicas-count) | ArgoCD Replicas Count | `number` | `1` | no |
 | <a name="input_configmap-name"></a> [configmap-name](#input\_configmap-name) | Config Map with CA Certificates Bundle Name | `string` | `"selfsigned-ca-bundle"` | no |
@@ -35,7 +35,7 @@ No requirements.
 | <a name="input_helm-chart-repo"></a> [helm-chart-repo](#input\_helm-chart-repo) | Helm Chart Repo | `string` | `"https://argoproj.github.io/argo-helm"` | no |
 | <a name="input_helm-chart-version"></a> [helm-chart-version](#input\_helm-chart-version) | Helm Chart Version | `string` | `"7.4.0"` | no |
 | <a name="input_helm-custom-values"></a> [helm-custom-values](#input\_helm-custom-values) | Use Helm Custom Values | `bool` | `false` | no |
-| <a name="input_helm-custom-values-path"></a> [helm-custom-values-path](#input\_helm-custom-values-path) | Helm Custom Values Path | `string` | `"values.yaml"` | no |
+| <a name="input_helm-custom-values-path"></a> [helm-custom-values-path](#input\_helm-custom-values-path) | Helm Custom Values Path | `string` | `""` | no |
 | <a name="input_helm-name"></a> [helm-name](#input\_helm-name) | Helm Release Name | `string` | `"argocd"` | no |
 | <a name="input_kubeconfig-path"></a> [kubeconfig-path](#input\_kubeconfig-path) | Kubeconfig Path | `string` | `"~/.kube/config"` | no |
 
@@ -43,20 +43,3 @@ No requirements.
 
 No outputs.
 <!-- END_TF_DOCS -->
-
-## How to use
-
-Change S3 values 
-
-Change network.tf
-
-Download ArgoCD CLI
-```bash
-argocd admin initial-password -n ${argocd-namespace}
-```
-
-## Optional 
-
-If you need to change the default values of variables, add them to the *terraform.tfvars* file.
-
-If the value of *helm-custom-values* is *true*, *values.yaml* will be used. You can modify *values.yaml*.
