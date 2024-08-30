@@ -30,7 +30,7 @@ No modules.
 | <a name="input_argocd-host"></a> [argocd-host](#input\_argocd-host) | ArgoCD Server URL | `string` | n/a | yes |
 | <a name="input_argocd-namespace"></a> [argocd-namespace](#input\_argocd-namespace) | ArgoCD Namespace | `string` | `"argocd"` | no |
 | <a name="input_argocd-replicas-count"></a> [argocd-replicas-count](#input\_argocd-replicas-count) | ArgoCD Replicas Count | `number` | `1` | no |
-| <a name="input_configmap-name"></a> [configmap-name](#input\_configmap-name) | Config Map with CA Certificates Bundle Name | `string` | `"selfsigned-ca-bundle"` | no |
+| <a name="input_configmap-name"></a> [configmap-name](#input\_configmap-name) | Config Map with CA Certificates Bundle Name | `string` | n/a | yes |
 | <a name="input_helm-chart-name"></a> [helm-chart-name](#input\_helm-chart-name) | Helm Chart Name | `string` | `"argo-cd"` | no |
 | <a name="input_helm-chart-repo"></a> [helm-chart-repo](#input\_helm-chart-repo) | Helm Chart Repo | `string` | `"https://argoproj.github.io/argo-helm"` | no |
 | <a name="input_helm-chart-version"></a> [helm-chart-version](#input\_helm-chart-version) | Helm Chart Version | `string` | `"7.4.0"` | no |
