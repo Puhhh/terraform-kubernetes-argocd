@@ -65,4 +65,5 @@ variable "argocd-replicas-count" {
 variable "configmap-name" {
   description = "Config Map with CA Certificates Bundle Name"
   type        = string
+  default     = ""
 }
