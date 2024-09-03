@@ -4,6 +4,12 @@ variable "kubeconfig-path" {
   default     = "~/.kube/config"
 }
 
+variable "kube-context" {
+  description = "Kubernetes Context to Use"
+  type        = string
+  default     = ""
+}
+
 variable "argocd-namespace" {
   description = "ArgoCD Namespace"
   type        = string

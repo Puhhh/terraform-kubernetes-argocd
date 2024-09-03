@@ -37,12 +37,10 @@ No modules.
 | <a name="input_helm-custom-values"></a> [helm-custom-values](#input\_helm-custom-values) | Use Helm Custom Values | `bool` | `false` | no |
 | <a name="input_helm-custom-values-path"></a> [helm-custom-values-path](#input\_helm-custom-values-path) | Helm Custom Values Path | `string` | `""` | no |
 | <a name="input_helm-name"></a> [helm-name](#input\_helm-name) | Helm Release Name | `string` | `"argocd"` | no |
+| <a name="input_kube-context"></a> [kube-context](#input\_kube-context) | Kubernetes Context to Use | `string` | `""` | no |
 | <a name="input_kubeconfig-path"></a> [kubeconfig-path](#input\_kubeconfig-path) | Kubeconfig Path | `string` | `"~/.kube/config"` | no |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_server-svc-namemespace"></a> [server-svc-namemespace](#output\_server-svc-namemespace) | n/a |
-| <a name="output_tls-name"></a> [tls-name](#output\_tls-name) | n/a |
+No outputs.
 <!-- END_TF_DOCS -->
