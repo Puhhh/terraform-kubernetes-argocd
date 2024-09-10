@@ -14,7 +14,6 @@ resource "helm_release" "argocd" {
   values = var.helm-custom-values ? [
     templatefile(var.helm-custom-values-path, {
       argocd-host    = var.argocd-host,
-      replicas-count = var.argocd-replicas-count,
       configmap-name = var.configmap-name,
     })
   ] : []

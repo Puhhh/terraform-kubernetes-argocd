@@ -62,12 +62,6 @@ variable "argocd-host" {
   type        = string
 }
 
-variable "argocd-replicas-count" {
-  description = "ArgoCD Replicas Count"
-  type        = number
-  default     = 1
-}
-
 variable "configmap-name" {
   description = "Config Map with CA Certificates Bundle Name"
   type        = string
