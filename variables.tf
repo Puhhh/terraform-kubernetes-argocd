@@ -16,12 +16,6 @@ variable "argocd-namespace" {
   default     = "argocd"
 }
 
-variable "helm-name" {
-  description = "Helm Release Name"
-  type        = string
-  default     = "argocd"
-}
-
 variable "helm-chart-name" {
   description = "Helm Chart Name"
   type        = string
